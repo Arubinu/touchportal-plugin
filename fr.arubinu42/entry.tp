@@ -1,0 +1,212 @@
+{
+  "sdk": 7,
+  "version": 1,
+  "id": "fr.arubinu42",
+  "name": "Arubinu42",
+  "categories": [
+    {
+      "id": "fr.arubinu42.action.scripts-manager",
+      "name": "Scripts Manager",
+      "imagepath": "%TP_PLUGIN_FOLDER%/fr.arubinu42/images/scripts_manager.png",
+      "actions": [
+        {
+          "id": "fr.arubinu42.action.scripts-manager.custom-request",
+          "prefix": "Scripts Manager:",
+          "name": "Custom Request",
+          "type": "communicate",
+          "description": "Send an object to Scripts Manager WebSocket",
+          "tryInline": true,
+          "format": "Message: {$message$} JSON: {$isJson$}",
+          "data": [
+            {
+              "id": "message",
+              "type": "text",
+              "label": "Message",
+              "default": ""
+            },
+            {
+              "id": "isJson",
+              "type": "switch",
+              "label": "JSON",
+              "default": true
+            }
+          ]
+        },
+        {
+          "id": "fr.arubinu42.action.scripts-manager.toggle-script",
+          "prefix": "Scripts Manager:",
+          "name": "Toggle Script",
+          "type": "communicate",
+          "description": "Activate/Deactivate a script in Scripts Manager",
+          "tryInline": true,
+          "format": "Script: {$script$} State: {$state$}",
+          "data": [
+            {
+              "id": "script",
+              "type": "choice",
+              "label": "Script",
+              "default": "",
+              "valueChoices": [
+                "Multi Actions",
+                "Stream Flash",
+                "Stream Widgets"
+              ]
+            },
+            {
+              "id": "state",
+              "type": "choice",
+              "label": "State",
+              "default": "Toggle",
+              "valueChoices": [
+                "Toggle",
+                "Enable",
+                "Disable"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fr.arubinu42.action.multi-actions.button",
+          "prefix": "",
+          "name": "Multi Actions: Button",
+          "type": "communicate",
+          "description": "Activates the \"Stream Deck - Action\" block in Multi Actions of Scripts Manager",
+          "tryInline": true,
+          "format": "Block ID: {$id$}",
+          "data": [
+            {
+              "id": "id",
+              "type": "number",
+              "label": "Block ID",
+              "default": 1,
+              "allowDecimals": false,
+              "minValue": 1
+            }
+          ]
+        },
+        {
+          "id": "fr.arubinu42.action.stream-flash.next-screen",
+          "prefix": "",
+          "name": "Stream Flash: Next Screen",
+          "type": "communicate",
+          "description": "Changes the screen on which to display the script",
+          "data": []
+        },
+        {
+          "id": "fr.arubinu42.action.stream-flash.pause",
+          "prefix": "",
+          "name": "Stream Flash: Pause",
+          "type": "communicate",
+          "description": "Enable/Disable flash pause",
+          "tryInline": true,
+          "format": "State: {$state$}",
+          "data": [
+            {
+                "id": "state",
+                "type": "choice",
+                "label": "State",
+                "default": "Toggle",
+                "valueChoices": [
+                  "Toggle",
+                  "Enable",
+                  "Disable"
+                ]
+              }
+          ]
+        },
+        {
+          "id": "fr.arubinu42.action.stream-widgets.next-screen",
+          "prefix": "",
+          "name": "Stream Widgets: Next Screen",
+          "type": "communicate",
+          "description": "Changes the screen on which to display the script",
+          "data": []
+        },
+        {
+          "id": "fr.arubinu42.action.stream-widgets.toggle-widget",
+          "prefix": "",
+          "name": "Stream Widgets: Toggle Widget",
+          "type": "communicate",
+          "description": "Activate/Deactivate a widget in Stream Widgets of Scripts Manager",
+          "tryInline": true,
+          "format": "Widget: {$widget$} State: {$state$}",
+          "data": [
+            {
+              "id": "widget",
+              "type": "text",
+              "label": "Widget",
+              "default": ""
+            },
+            {
+              "id": "state",
+              "type": "choice",
+              "label": "State",
+              "default": "Toggle",
+              "valueChoices": [
+                "Toggle",
+                "Enable",
+                "Disable"
+              ]
+            }
+          ]
+        }
+      ],
+      "events": [],
+      "connectors": [],
+      "states": []
+    },
+    {
+      "id": "fr.arubinu42.action.overlays",
+      "name": "Overlays",
+      "imagepath": "%TP_PLUGIN_FOLDER%/fr.arubinu42/images/overlays.png",
+      "actions": [
+        {
+          "id": "fr.arubinu42.action.phasmophobia.evidence",
+          "prefix": "",
+          "name": "Overlay Phasmophobia: Evidence",
+          "type": "communicate",
+          "description": "Interacts with the overlay for Phasmophobia",
+          "data": [
+            {
+              "id": "evidence",
+              "type": "choice",
+              "label": "Evidence",
+              "default": "EMF Level 5",
+              "valueChoices": [
+                "EMF Level 5",
+                "Fingerprints",
+                "Ghost Writing",
+                "Freezing Temperatures",
+                "D.O.T.S Projector",
+                "Ghost Orb",
+                "Spirit Box"
+              ]
+            },
+            {
+              "id": "mode",
+              "type": "choice",
+              "label": "Mode",
+              "default": "Next state",
+              "valueChoices": [
+                "Found",
+                "Impossible",
+                "Next state"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fr.arubinu42.action.phasmophobia.reset",
+          "prefix": "",
+          "name": "Overlay Phasmophobia: Reset",
+          "type": "communicate",
+          "description": "Disables all evidence on the overlay for Phasmophobia",
+          "data": []
+        }
+      ],
+      "events": [],
+      "connectors": [],
+      "states": []
+    }
+  ]
+}
