@@ -1,6 +1,6 @@
 {
   "sdk": 7,
-  "version": 1,
+  "version": 2,
   "id": "fr.arubinu42",
   "name": "Arubinu42",
   "categories": [
@@ -70,7 +70,7 @@
           "prefix": "",
           "name": "Multi Actions: Button",
           "type": "communicate",
-          "description": "Activates the \"Stream Deck - Action\" block in Multi Actions of Scripts Manager",
+          "description": "Activates the \"Stream Deck / Touch Portal - Action\" block in Multi Actions of Scripts Manager",
           "tryInline": true,
           "format": "Block ID: {$id$}",
           "data": [
@@ -83,6 +83,140 @@
               "minValue": 1
             }
           ]
+        },
+        {
+          "id": "fr.arubinu42.action.multi-actions.variable-setter.string",
+          "prefix": "",
+          "name": "Multi Actions: Variable Setter (String)",
+          "type": "communicate",
+          "description": "Prepare a string variable for \"Multi Actions: Button\"",
+          "tryInline": true,
+          "format": "Variable Name: {$name$} Value {$value$} Scope: {$scope$}",
+          "data": [
+            {
+              "id": "name",
+              "type": "text",
+              "label": "Variable Name",
+              "default": "block:variable:string"
+            },
+            {
+              "id": "value",
+              "type": "text",
+              "label": "Value",
+              "default": ""
+            },
+            {
+              "id": "scope",
+              "type": "choice",
+              "label": "State",
+              "default": "Next",
+              "valueChoices": [
+                "Global",
+                "Local",
+                "Next"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fr.arubinu42.action.multi-actions.variable-setter.number",
+          "prefix": "",
+          "name": "Multi Actions: Variable Setter (Number)",
+          "type": "communicate",
+          "description": "Prepare a number variable for \"Multi Actions: Button\"",
+          "tryInline": true,
+          "format": "Variable Name: {$name$} Value {$value$} Scope: {$scope$}",
+          "data": [
+            {
+              "id": "name",
+              "type": "text",
+              "label": "Variable Name",
+              "default": "block:variable:number"
+            },
+            {
+              "id": "value",
+              "type": "number",
+              "label": "Value",
+              "default": 0,
+              "allowDecimals": false
+            },
+            {
+              "id": "scope",
+              "type": "choice",
+              "label": "State",
+              "default": "Next",
+              "valueChoices": [
+                "Global",
+                "Local",
+                "Next"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fr.arubinu42.action.multi-actions.variable-setter.boolean",
+          "prefix": "",
+          "name": "Multi Actions: Variable Setter (Boolean)",
+          "type": "communicate",
+          "description": "Prepare a boolean variable for \"Multi Actions: Button\"",
+          "tryInline": true,
+          "format": "Variable Name: {$name$} Value {$value$} Scope: {$scope$}",
+          "data": [
+            {
+              "id": "name",
+              "type": "text",
+              "label": "Variable Name",
+              "default": "block:variable:boolean"
+            },
+            {
+              "id": "value",
+              "type": "switch",
+              "label": "Value",
+              "default": true
+            },
+            {
+              "id": "scope",
+              "type": "choice",
+              "label": "State",
+              "default": "Next",
+              "valueChoices": [
+                "Global",
+                "Local",
+                "Next"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fr.arubinu42.action.notifications.corner",
+          "prefix": "",
+          "name": "Notifications: Corner",
+          "type": "communicate",
+          "description": "Changes the corner in which to display notifications",
+          "tryInline": true,
+          "format": "Corner: {$corner$}",
+          "data": [
+            {
+              "id": "corner",
+              "type": "choice",
+              "label": "Corner",
+              "default": "Next",
+              "valueChoices": [
+                "Next",
+                "Top-Left",
+                "Top-Right",
+                "Bottom-Left",
+                "Bottom-Right"
+              ]
+            }]
+        },
+        {
+          "id": "fr.arubinu42.action.notifications.next-screen",
+          "prefix": "",
+          "name": "Notifications: Next Screen",
+          "type": "communicate",
+          "description": "Changes the screen on which to display notifications",
+          "data": []
         },
         {
           "id": "fr.arubinu42.action.stream-flash.next-screen",
@@ -102,16 +236,16 @@
           "format": "State: {$state$}",
           "data": [
             {
-                "id": "state",
-                "type": "choice",
-                "label": "State",
-                "default": "Toggle",
-                "valueChoices": [
-                  "Toggle",
-                  "Enable",
-                  "Disable"
-                ]
-              }
+              "id": "state",
+              "type": "choice",
+              "label": "State",
+              "default": "Toggle",
+              "valueChoices": [
+                "Toggle",
+                "Enable",
+                "Disable"
+              ]
+            }
           ]
         },
         {
@@ -166,6 +300,8 @@
           "name": "Overlay Phasmophobia: Evidence",
           "type": "communicate",
           "description": "Interacts with the overlay for Phasmophobia",
+          "tryInline": true,
+          "format": "Evidence: {$evidence$} Mode: {$mode$}",
           "data": [
             {
               "id": "evidence",
