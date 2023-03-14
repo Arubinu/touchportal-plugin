@@ -1,6 +1,6 @@
 {
   "sdk": 7,
-  "version": 2,
+  "version": 3,
   "id": "fr.arubinu42",
   "name": "Arubinu42",
   "categories": [
@@ -255,6 +255,29 @@
           "type": "communicate",
           "description": "Changes the screen on which to display the script",
           "data": []
+        },
+        {
+          "id": "fr.arubinu42.action.stream-widgets.replace-url",
+          "prefix": "",
+          "name": "Stream Widgets: Replace URL",
+          "type": "communicate",
+          "description": "Override web page address to display as widget in Stream Widgets of Scripts Manager",
+          "tryInline": true,
+          "format": "Widget: {$widget$} URL: {$url$}",
+          "data": [
+            {
+              "id": "widget",
+              "type": "text",
+              "label": "Widget",
+              "default": ""
+            },
+            {
+              "id": "url",
+              "type": "text",
+              "label": "URL",
+              "default": ""
+            }
+          ]
         },
         {
           "id": "fr.arubinu42.action.stream-widgets.toggle-widget",
